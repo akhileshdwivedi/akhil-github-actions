@@ -6,5 +6,7 @@ jobs:
   Unit-Tests:
     runs-on: ubuntu-latest
     steps:
-      - name: step name
-        run: echo "Hey"
+      - name: Step One
+        run: echo "Hey, This is step One"
+      - name: Step Two
+        run: echo "Hey, This is step Tw0"
