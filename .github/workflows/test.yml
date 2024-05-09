@@ -3,10 +3,21 @@ run-name: ${{ github.actor }} is testing out Github Actions
 on: [push]
 
 jobs:
-  Unit-Tests:
+  Job1-workflow1:
     runs-on: ubuntu-latest
     steps:
       - name: Step One
         run: echo "This is step One"
+      - name: Step Two
+        run: echo "This is step Tw0"
+      - name: Step Two
+        run: echo "This is step Tw0"
+  Job2-workflow1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step One
+        run: echo "This is step One"
+      - name: Step Two
+        run: echo "This is step Tw0"
       - name: Step Two
         run: echo "This is step Tw0"
