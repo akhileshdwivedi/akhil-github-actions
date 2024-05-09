@@ -1,0 +1,10 @@
+name: PR Test
+run-name: ${{ github.actor }} is testing out Github Actions
+on: [push]
+
+jobs:
+  Unit-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step name
+        run: echo "Hey"
