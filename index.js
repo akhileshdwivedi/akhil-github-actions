@@ -1,4 +1,4 @@
 const API_KEY = "a-dummy-password";
 
-const TOKEN =
-	"H&-e1lm,WHBzR=AebqiOFZ"j3oBEW";
+const GITHUB_TOKEN =
+	"github_pat_6656hagsfyasd76as8yduashd7asdas-d-as0d-asdlkjsaiody89ashdbsd";
