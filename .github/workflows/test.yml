@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Secret Scanning Review Action'
-        uses: advanced-security/secret-scanning-review-action@v2.2.0
+        uses: advanced-security/secret-scanning-review-action@v2.1.0
         with:
           token: ${{ secrets.SCAN_TOKEN }}
           fail-on-alert: true
