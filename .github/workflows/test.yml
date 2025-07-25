@@ -1,4 +1,4 @@
-name: 'Secret Scanning Review Test branch'
+name: 'Secret Scanning Review'
 on: [pull_request]
 
 jobs:
