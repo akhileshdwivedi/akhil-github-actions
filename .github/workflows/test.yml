@@ -6,9 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Secret Scanning Review Action'
-        uses: advanced-security/secret-scanning-review-action@v2.0.0
+        uses: advanced-security/secret-scanning-review-action@v2.2.0
         with:
           token: ${{ secrets.SCAN_TOKEN }}
           fail-on-alert: true
           fail-on-alert-exclude-closed: true
           runtime: 'python'
+      - name: 'Log alert metadata'
+        if: always()
+        run: |
+          echo ${{ steps.secret-alert-check.outputs.alerts }}
