@@ -8,7 +8,7 @@ jobs:
       - name: 'Secret Scanning Review Action'
         uses: advanced-security/secret-scanning-review-action@v2.0.0
         with:
-          token: ${{ secrets.akhil-gh-fga-token }}
+          token: ${{ secrets.SCAN_TOKEN }}
           fail-on-alert: true
           fail-on-alert-exclude-closed: true
           runtime: 'python'
