@@ -1,2 +1,2 @@
 const API_KEY = "a-dummy-password";
-const token = "ghp_1A2b3C4d5E6F7g8H9iJ0kLmNpQrStUvWxYz";
+const GITHUB_TOKEN ="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";

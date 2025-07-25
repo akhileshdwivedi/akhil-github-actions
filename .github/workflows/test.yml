@@ -1,23 +1,14 @@
-name: PR Test
-run-name: ${{ github.actor }} is testing out Github Actions
-on: [push]
+name: 'Secret Scanning Review'
+on: [pull_request]
 
 jobs:
-  Job1-workflow1:
+  secret-scanning-review:
     runs-on: ubuntu-latest
     steps:
-      - name: Step One
-        run: echo "This is step One"
-      - name: Step Two
-        run: echo "This is step Tw0"
-      - name: Step Two
-        run: echo "This is step Tw0"
-  Job2-workflow1:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Step One
-        run: echo "This is step One"
-      - name: Step Two
-        run: echo "This is step Tw0"
-      - name: Step Two
-        run: echo "This is step Tw0"
+      - name: 'Secret Scanning Review Action'
+        uses: advanced-security/secret-scanning-review-action@v2.0.0
+        with:
+          token: ${{ secrets.akhil-gh-fga-token }}
+          fail-on-alert: true
+          fail-on-alert-exclude-closed: true
+          runtime: 'python'
