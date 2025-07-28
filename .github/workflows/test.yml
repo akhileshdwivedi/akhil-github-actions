@@ -14,6 +14,10 @@ jobs:
         with:
           token: ${{ secrets.SCAN_TOKEN }}
           runtime: 'python'
+          fail-on-alert-exclude-closed: true
+          fail-on-alert: true
       - name: 'Log alert metadata'
+        if: always()
         run: |
+          echo 'Failed'
           echo ${{ env.GITHUB_STEP_SUMMARY }}
