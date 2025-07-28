@@ -3,7 +3,6 @@ on: [pull_request]
 
 jobs:
   secret-scanning-review:
-    # runs-on: codebuild-akhil-codebuild-project-${{ github.run_id }}-${{ github.run_attempt }}
     runs-on: ubuntu-latest
     steps:
       - name: 'Check python version'
@@ -18,4 +17,3 @@ jobs:
       - name: 'Log alert metadata'
         run: |
           echo ${{ env.GITHUB_STEP_SUMMARY }}
-          echo "The result is: ${{ steps.secret-alert-check.outputs.result }}"
