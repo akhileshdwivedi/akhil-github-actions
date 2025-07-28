@@ -13,9 +13,8 @@ jobs:
         id: secret-alert-check
         with:
           token: ${{ secrets.SCAN_TOKEN }}
-          runtime: 'python'
-          fail-on-alert-exclude-closed: true
           fail-on-alert: true
+          runtime: 'python'
       - name: 'Log alert metadata'
         if: always()
         run: |
