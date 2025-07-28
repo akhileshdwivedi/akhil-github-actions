@@ -17,5 +17,5 @@ jobs:
           runtime: 'python'
       - name: 'Log alert metadata'
         run: |
-          echo ${{ steps.secret-alert-check.outputs.GITHUB_STEP_SUMMARYs }}
+          echo ${{ steps.secret-alert-check.outputs.GITHUB_STEP_SUMMARY }}
           echo ${{ steps.secret-alert-check.outputs.alerts }}
