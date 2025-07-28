@@ -5,10 +5,18 @@ jobs:
   secret-scanning-review:
     runs-on: ubuntu-latest
     steps:
+      - name: 'Check python version'
+        run: | 
+          python --version
       - name: 'Secret Scanning Review Action'
-        uses: advanced-security/secret-scanning-review-action@v2.0.0
+        uses: advanced-security/secret-scanning-review-action@v2.1.0
+        id: secret-alert-check
         with:
-          token: ${{ secrets.akhil-gh-fga-token }}
+          token: ${{ secrets.SCAN_TOKEN }}
           fail-on-alert: true
-          fail-on-alert-exclude-closed: true
           runtime: 'python'
+      - name: 'Log alert metadata'
+        if: always()
+        run: |
+          echo 'Failed'
+          echo ${{ env.GITHUB_STEP_SUMMARY }}
