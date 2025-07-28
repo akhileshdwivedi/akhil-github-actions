@@ -15,7 +15,9 @@ jobs:
         with:
           token: ${{ secrets.SCAN_TOKEN }}
           runtime: 'python'
+        outputs: 
+          result: ${{ env.GITHUB_STEP_SUMMARY }}
       - name: 'Log alert metadata'
         run: |
-          echo ${{ steps.secret-alert-check.outputs.GITHUB_STEP_SUMMARY }}
-          echo ${{ steps.secret-alert-check.outputs.alerts }}
+          echo "Line 1" >> "$GITHUB_OUTPUT"
+          echo "The result is: ${{ steps.secret-alert-check.outputs.result }}"
