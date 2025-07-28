@@ -3,8 +3,11 @@ on: [pull_request]
 
 jobs:
   secret-scanning-review:
-    runs-on: codebuild-akhil-codebuild-project-${{ github.run_id }}-${{ github.run_attempt }}
+    # runs-on: codebuild-akhil-codebuild-project-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: ubuntu-latest
     steps:
+      - name: 'Check python version'
+        run: python --version
       - name: 'Secret Scanning Review Action'
         uses: advanced-security/secret-scanning-review-action@v2.1.0
         id: secret-alert-check
@@ -15,5 +18,3 @@ jobs:
         if: always()
         run: |
           echo ${{ steps.secret-alert-check.outputs.alerts }}
-      - name: 'Test with Codebuild'
-        run: echo 'Hey'
