@@ -10,12 +10,13 @@ on:
   push:
     branches:
       - main
+env:
+  DEPLOY_TO_LIVE: ${{ github.event.inputs.deploy_to_live || true }}
 
 jobs:
   secret-scanning-review:
     runs-on: ubuntu-latest
-    env:
-      DEPLOY_TO_LIVE: ${{ github.event.inputs.deploy_to_live || true }}
+    if: ${{ env.DEPLOY_TO_LIVE == 'true' }}
     steps:
       - name: 'step1'
         run: |
