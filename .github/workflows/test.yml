@@ -14,12 +14,14 @@ on:
 jobs:
   secret-scanning-review:
     runs-on: ubuntu-latest
-    if: ( github.ref_name == 'main' || github.event.inputs.deploy_to_live == 'true')
+    env:
+      DEPLOY_TO_LIVE: ${{ github.event.inputs.deploy_to_live || true}}
     steps:
       - name: 'step1'
         run: |
-          echo 'Hi'
-          echo "output: ${{ github.ref_name }}, ${{ github.event.inputs.deploy_to_live }}"
+          if [[ ${{ env.DEPLOY_TO_LIVE = "true" }}]]
+            echo "output: ${{ github.ref_name }}, ${{ github.event.inputs.deploy_to_live }}"
+          fi
       - name: 'step2'
         run: |
           echo 'Hey'
