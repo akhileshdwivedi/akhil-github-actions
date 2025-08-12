@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: 'step1'
         run: |
-          if [[ ${{ env.DEPLOY_TO_LIVE = "true" }}]]
+          if [[ ${{ env.DEPLOY_TO_LIVE = "true" }} ]] then
             echo "output: ${{ github.ref_name }}, ${{ github.event.inputs.deploy_to_live }}"
           fi
       - name: 'step2'
