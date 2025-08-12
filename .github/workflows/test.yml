@@ -14,9 +14,12 @@ on:
 jobs:
   secret-scanning-review:
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_TO_LIVE: ${{ github.event.inputs.deploy_to_live || true }}
     steps:
       - name: 'step1'
         run: |
+          if [[ ${{ env.DEPLOY_TO_LIVE }} = "true" ]]
           echo "output: ${{ github.ref_name }}, ${{ github.event.inputs.deploy_to_live }}"
       - name: 'step2'
         run: |
