@@ -15,7 +15,7 @@ jobs:
   secret-scanning-review:
     runs-on: ubuntu-latest
     env:
-      DEPLOY_TO_LIVE: ${{ github.event.inputs.deploy_to_live || true}}
+      DEPLOY_TO_LIVE: ${{ github.event.inputs.deploy_to_live || true }}
     steps:
       - name: 'step1'
         run: |
