@@ -1,22 +1,24 @@
 name: 'Secret Scanning Review'
-on: [pull_request]
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_to_live:
+        description: 'Deploy to live'
+        type: boolean
+        default: false
+        required: true
+  push:
+    branches:
+      - main
 
 jobs:
   secret-scanning-review:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Check python version'
-        run: | 
-          python --version
-      - name: 'Secret Scanning Review Action'
-        uses: advanced-security/secret-scanning-review-action@v2.1.0
-        id: secret-alert-check
-        with:
-          token: ${{ secrets.SCAN_TOKEN }}
-          fail-on-alert: true
-          runtime: 'python'
-      - name: 'Log alert metadata'
-        if: always()
+      - name: 'step1'
         run: |
-          echo 'Failed'
-          echo ${{ env.GITHUB_STEP_SUMMARY }}
+          echo github.ref_name == 'main
+          github.event.inputs.deploy_to_live
+      - name: 'step2'
+        run: |
+          echo 'Hey'
